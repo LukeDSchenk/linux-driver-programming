@@ -1,0 +1,1 @@
+cmd_/home/luke/Projects/linux-driver-programming/chapter-2/hello-world/hello-1.mod := { echo  /home/luke/Projects/linux-driver-programming/chapter-2/hello-world/hello-1.o;  echo; } > /home/luke/Projects/linux-driver-programming/chapter-2/hello-world/hello-1.mod
