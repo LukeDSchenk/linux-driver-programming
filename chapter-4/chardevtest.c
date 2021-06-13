@@ -8,6 +8,9 @@
 #include <asm/uaccess.h>  // for put_user
 //#include <linux/uaccess.h> // this is the file used by Engineer Man for copy_to_user()
 
+MODULE_AUTHOR("Luke Schenk");
+MODULE_LICENSE("GPL");
+
 // Prototypes - this would normally go in a header file
 int init_module(void);
 void cleanup_module(void);
@@ -39,7 +42,7 @@ int init_module(void) {
 	Major = register_chrdev(0, DEVICE_NAME, &fops);
 	if (Major < 0) {
 		printk(KERN_ALERT "Registering char device failed with %d\n", Major);
-		return Major
+		return Major;
 	}
 
 	printk(KERN_INFO "I was assigned major number %d. To talk to\n", Major);
@@ -54,10 +57,12 @@ int init_module(void) {
 
 /// This function is called when the module is unloaded.
 void cleanup_module(void) {
-	int ret = unregister_chrdev(Major, DEVICE_NAME);
-	if (ret < 0) {
-		printk(KERN_ALERT "Error in unregister_chrdev: %d\n", ret);
-	}
+	// The code presented in the example will throw an error on modern kernels
+	// I am using 5.4.0-74-generic
+	// The version of unregister_chrdev() used by my kernel version is a void function,
+	// and therefore should not be error checked
+	unregister_chrdev(Major, DEVICE_NAME);
+	printk(KERN_INFO "Module unloaded!\n");
 }
 
 
