@@ -1,1 +1,0 @@
-cmd_/home/luke/Projects/linux-driver-programming/chapter-2/multi-file-modules/startstop.mod := { echo  /home/luke/Projects/linux-driver-programming/chapter-2/multi-file-modules/start.o /home/luke/Projects/linux-driver-programming/chapter-2/multi-file-modules/stop.o;  echo; } > /home/luke/Projects/linux-driver-programming/chapter-2/multi-file-modules/startstop.mod
