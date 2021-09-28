@@ -150,7 +150,7 @@ int create_new_proc_entry(void) {
 
 /// The init function of the module. Does nothing other than calling create_new_proc_entry().
 int proc_init(void) {
-    if (create_proc_entry()) {
+    if (create_new_proc_entry()) {
         return -1;
     }
     return 0;
